@@ -14,7 +14,7 @@
         class="lang-block absolute overflow-hidden z-20"
         :class="isLangBlockOpened ? 'opened-lang-block' : 'closed-lang-block'"
       >
-        <div class="absolute w-full h-full lang-block-bg"></div>
+        <div class="absolute w-full h-full lang-block-bg" />
         <div class="relative lang-list flex flex-col z-10">
           <div
             class="lang-list-item flex flex-row items-center justify-between"
@@ -149,7 +149,7 @@ const isCancelButtonBroken = ref(false);
 const buttonTransitionDuration = ref(0);
 const langBlockTransitionDuration = ref(0);
 
-const line1AnimationDuration = ref(2000);
+const line1AnimationDuration = ref(1200);
 const line2AnimationDuration = ref(0);
 const line3AnimationDuration = ref(0);
 
@@ -342,16 +342,15 @@ watch(
       updateButtonTransitionDuration();
     }
     if (count === 1) {
-      line2AnimationDuration.value = 500;
+      line2AnimationDuration.value = 1200;
     }
     if (count === 2) {
-      line1AnimationDuration.value = 800;
       line2AnimationDuration.value = 0;
     }
     if (count === 3) {
-      line1AnimationDuration.value = 2000;
-      line2AnimationDuration.value = 2000;
-      line3AnimationDuration.value = 2000;
+      line1AnimationDuration.value = 1200;
+      line2AnimationDuration.value = 1200;
+      line3AnimationDuration.value = 1200;
     }
     if (count === 4) {
       // eslint-disable-next-line
@@ -420,8 +419,10 @@ onMounted(async () => {
   });
   await Promise.all(imgPromises);
 
-  isLoading.value = true;
-  isMounted.value = true;
+  setTimeout(() => {
+    isLoading.value = true;
+    isMounted.value = true;
+  }, 500);
 });
 
 onBeforeUnmount(() => {
@@ -455,27 +456,27 @@ onBeforeUnmount(() => {
     height: 100%;
   }
 }
-@keyframes line-horizontal-animation {
+@keyframes line-appear-animation {
   from {
-    width: 0;
+    opacity: 0;
   }
   to {
-    width: 100%;
+    opacity: 1;
   }
 }
 .line1 {
-  animation: line-horizontal-animation var(--line1-animation-duration) linear forwards;
-  width: 0;
+  animation: line-appear-animation var(--line1-animation-duration) linear forwards;
+  opacity: 0;
 }
 .line2 {
-  animation: line-horizontal-animation var(--line2-animation-duration) linear forwards;
+  animation: line-appear-animation var(--line2-animation-duration) linear forwards;
   animation-delay: var(--line1-animation-duration);
-  width: 0;
+  opacity: 0;
 }
 .line3 {
-  animation: line-horizontal-animation var(--line3-animation-duration) linear forwards;
+  animation: line-appear-animation var(--line3-animation-duration) linear forwards;
   animation-delay: calc(var(--line1-animation-duration) + var(--line2-animation-duration));
-  width: 0;
+  opacity: 0;
 }
 .mobile-line {
   height: 0;
@@ -655,8 +656,8 @@ onBeforeUnmount(() => {
       line-height: getMobileSize(22);
     }
     .button-text-small {
-      font-size: getMobileSize(12);
-      line-height: getMobileSize(20);
+      font-size: getMobileSize(11);
+      line-height: getMobileSize(19);
     }
     .confirm-button {
       box-shadow: inset 0px getMobileSize(-6) 0px #3f3f68;
@@ -753,9 +754,19 @@ onBeforeUnmount(() => {
     }
     .text-large {
       font-size: getTabletSize(34);
+      line-height: getTabletSize(38);
     }
     .text-small {
       font-size: getTabletSize(28);
+      line-height: getTabletSize(32);
+    }
+    .text-large .text,
+    .text-large .line-wrapper {
+      height: getTabletSize(38);
+    }
+    .text-small .text,
+    .text-small .line-wrapper {
+      height: getTabletSize(32);
     }
     .mobile-line-wrapper {
       opacity: 0;
@@ -883,12 +894,21 @@ onBeforeUnmount(() => {
     font-size: getDesktopSize(36);
     line-height: getDesktopSize(40);
   }
+  .text-large .text,
+  .text-large .line-wrapper {
+    height: getDesktopSize(44);
+  }
+  .text-small .text,
+  .text-small .line-wrapper {
+    height: getDesktopSize(40);
+  }
   .mobile-line-wrapper {
     opacity: 0;
     position: absolute;
   }
   .line-wrapper {
     position: relative;
+    width: max-content;
   }
   .button-shape {
     height: getDesktopSize(100);
