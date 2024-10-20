@@ -24,3 +24,5 @@ yarn build
 ```sh
 yarn lint
 ```
+### Build of the landing on the 'build' branch
+### live site  https://byordova-j-a.github.io/expample-landing/
