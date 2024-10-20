@@ -4,7 +4,7 @@
 ## Project Setup
 
 ```sh
-yarn
+yarn install
 ```
 
 ### Compile and Hot-Reload for Development
