@@ -231,7 +231,7 @@ const buttonHoweredBlockClass = computed(() => {
 });
 
 const textBlockClass = computed(() => {
-  return confirmButtonClickCount.value < 3 ? 'text-small' : 'text-large';
+  return confirmButtonClickCount.value < 3 ? 'text-large' : 'text-small';
 });
 
 const onLanguageBlockClick = async (selectedLocale?: string) => {
