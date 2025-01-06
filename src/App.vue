@@ -9,7 +9,7 @@
       src="/src/assets/img/bg.jpg"
       alt="background"
     />
-    <div class="relative content-block-position">
+    <div class="relative h-0 w-0">
       <div
         class="lang-block absolute overflow-hidden z-20"
         :class="isLangBlockOpened ? 'opened-lang-block' : 'closed-lang-block'"
@@ -219,7 +219,6 @@ const cssComputedVars = computed(() => {
 
 const cancelButtonClassList = computed(() => {
   return [
-    isButtonsShowed.value ? 'show-cancel-button' : 'hide-cancel-button',
     position.value === EPosition.TOP || !isButtonsShowed.value
       ? 'cancel-button-hidden'
       : `cancel-button-` + position.value,
@@ -443,10 +442,6 @@ onBeforeUnmount(() => {
 }
 .main {
   user-select: none;
-}
-.content-block-position {
-  height: 0;
-  width: 0;
 }
 @keyframes line-vertical-animation {
   from {
@@ -754,19 +749,19 @@ onBeforeUnmount(() => {
     }
     .text-large {
       font-size: getTabletSize(34);
-      line-height: getTabletSize(38);
+      line-height: getTabletSize(40);
     }
     .text-small {
       font-size: getTabletSize(28);
-      line-height: getTabletSize(32);
+      line-height: getTabletSize(34);
     }
     .text-large .text,
     .text-large .line-wrapper {
-      height: getTabletSize(38);
+      height: getTabletSize(40);
     }
     .text-small .text,
     .text-small .line-wrapper {
-      height: getTabletSize(32);
+      height: getTabletSize(34);
     }
     .mobile-line-wrapper {
       opacity: 0;
@@ -888,19 +883,19 @@ onBeforeUnmount(() => {
   }
   .text-large {
     font-size: getDesktopSize(40);
-    line-height: getDesktopSize(44);
+    line-height: getDesktopSize(48);
   }
   .text-small {
     font-size: getDesktopSize(36);
-    line-height: getDesktopSize(40);
+    line-height: getDesktopSize(44);
   }
   .text-large .text,
   .text-large .line-wrapper {
-    height: getDesktopSize(44);
+    height: getDesktopSize(48);
   }
   .text-small .text,
   .text-small .line-wrapper {
-    height: getDesktopSize(40);
+    height: getDesktopSize(44);
   }
   .mobile-line-wrapper {
     opacity: 0;

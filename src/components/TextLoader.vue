@@ -46,6 +46,7 @@ watch(
     .loading-text {
       -webkit-text-stroke-width: getMobileSize(1);
       font-size: getMobileSize(80);
+      line-height: getMobileSize(60);
       letter-spacing: getMobileSize(5);
     }
   }
@@ -54,6 +55,7 @@ watch(
     .loading-text {
       -webkit-text-stroke-width: getTabletSize(1);
       font-size: getTabletSize(120);
+      line-height: getTabletSize(100);
       letter-spacing: getTabletSize(10);
     }
   }
@@ -63,6 +65,7 @@ watch(
   .loading-text {
     -webkit-text-stroke: getDesktopSize(1);
     font-size: getDesktopSize(120);
+    line-height: getDesktopSize(100);
     letter-spacing: getDesktopSize(10);
   }
 }
