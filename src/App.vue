@@ -883,19 +883,19 @@ onBeforeUnmount(() => {
   }
   .text-large {
     font-size: getDesktopSize(40);
-    line-height: getDesktopSize(48);
+    line-height: getDesktopSize(54);
   }
   .text-small {
     font-size: getDesktopSize(36);
-    line-height: getDesktopSize(44);
+    line-height: getDesktopSize(50);
   }
   .text-large .text,
   .text-large .line-wrapper {
-    height: getDesktopSize(48);
+    height: getDesktopSize(54);
   }
   .text-small .text,
   .text-small .line-wrapper {
-    height: getDesktopSize(44);
+    height: getDesktopSize(50);
   }
   .mobile-line-wrapper {
     opacity: 0;
