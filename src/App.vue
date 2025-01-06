@@ -231,7 +231,7 @@ const buttonHoweredBlockClass = computed(() => {
 });
 
 const textBlockClass = computed(() => {
-  return confirmButtonClickCount.value < 3 && locale.value !== 'en' ? 'text-large' : 'text-small';
+  return confirmButtonClickCount.value < 3 ? 'text-small' : 'text-large';
 });
 
 const onLanguageBlockClick = async (selectedLocale?: string) => {
@@ -749,19 +749,19 @@ onBeforeUnmount(() => {
     }
     .text-large {
       font-size: getTabletSize(34);
-      line-height: getTabletSize(40);
+      line-height: getTabletSize(44);
     }
     .text-small {
       font-size: getTabletSize(28);
-      line-height: getTabletSize(34);
+      line-height: getTabletSize(38);
     }
     .text-large .text,
     .text-large .line-wrapper {
-      height: getTabletSize(40);
+      height: getTabletSize(44);
     }
     .text-small .text,
     .text-small .line-wrapper {
-      height: getTabletSize(34);
+      height: getTabletSize(38);
     }
     .mobile-line-wrapper {
       opacity: 0;
@@ -916,8 +916,8 @@ onBeforeUnmount(() => {
     -webkit-text-stroke-width: getDesktopSize(0.5);
   }
   .button-text-large {
-    font-size: getDesktopSize(32);
-    line-height: getDesktopSize(38);
+    font-size: getDesktopSize(34);
+    line-height: getDesktopSize(40);
   }
   .button-text-small {
     font-size: getDesktopSize(22);
